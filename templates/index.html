@@ -1,0 +1,352 @@
+
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+
+        <!-- Bootstrap CSS -->
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            #wrapper {
+              padding-left: 0;
+              -webkit-transition: all 0.6s ease;
+              -moz-transition: all 0.6s ease;
+              -o-transition: all 0.6s ease;
+              transition: all 0.6s ease;
+            }
+            #wrapper.toggled {
+              padding-left: 200px;
+            }
+            #sidebar-wrapper {
+              z-index: 1000;
+              position: fixed;
+              left: 250px;
+              width: 0;
+              height: 100%;
+              margin-left: -250px;
+              overflow-y: auto;
+              background-color:#312A25 !Important;
+              -webkit-transition: all 0.5s ease;
+              -moz-transition: all 0.5s ease;
+              -o-transition: all 0.5s ease;
+              transition: all 0.5s ease;
+            }
+            #wrapper.toggled #sidebar-wrapper {
+               width: 0;
+            }
+            #page-content-wrapper {
+               width: 100%;
+               position: absolute;
+               padding: 10px;
+            }
+            #wrapper.toggled #page-content-wrapper {
+               position: absolute;
+               margin-left:-250px;
+            }
+            .sidebar-nav {
+               position: absolute;
+               top: 0;
+               right:15px;
+               width: 200px;
+               margin: 0;
+               padding: 0;
+               list-style: none;
+            }
+            .sidebar-nav li {
+               text-indent: 20px;
+               line-height: 40px;
+            }
+            .sidebar-nav li a {
+               display: block;
+               text-decoration: none;
+               color: #999999;
+            }
+            .sidebar-nav li a:hover {
+               text-decoration: none;
+               color: #fff;
+               background: #312A25;
+            }
+            .sidebar-nav li a:active,
+            .sidebar-nav li a:focus {
+               text-decoration: none;
+            }
+            .sidebar-nav > .sidebar-brand {
+               height: 60px;
+               font-size: 18px;
+            }
+            .sidebar-nav > .sidebar-brand a {
+               color: #999999;
+            }
+            .sidebar-nav > .sidebar-brand a:hover {
+               color: #fff;
+               background: none;
+            }
+            @media(min-width:768px) {
+              #wrapper {
+                padding-left: 220px;
+              }
+              #wrapper.toggled {
+                padding-left: 0;
+              }
+              #sidebar-wrapper {
+                width: 200px;
+              }
+              #wrapper.toggled #sidebar-wrapper {
+                width: 40px;
+              }
+              #wrapper.toggled span {
+                visibility:hidden;
+              }
+              #wrapper.toggled   i {
+                float:right;
+              }
+              #page-content-wrapper {
+                padding: 20px;
+                position: relative;
+              }
+               #wrapper.toggled #page-content-wrapper {
+                 position: relative;
+                 margin-right: 0;
+               }
+            }
+            @media(max-width:414px) {
+              #wrapper.toggled #page-content-wrapper {
+                position: absolute;
+                margin-right:60px;
+              }
+              #wrapper.toggled {
+                padding-right: 60px;
+              }
+              #wrapper {
+                padding-left: 20px;
+              }
+              #wrapper.toggled {
+                padding-left: 0;
+              }
+              #sidebar-wrapper {
+                width: 50px;
+              }
+              #wrapper.toggled #sidebar-wrapper {
+                 width: 140px;
+              }
+              #wrapper.toggled span {
+                 visibility:visible;
+                 position:relative;
+                 left:70px;
+                 bottom:13px;
+              }
+              #wrapper span {
+                 visibility:hidden;
+               }
+              #wrapper.toggled   i {
+                float:right;
+              }
+              #wrapper i {
+                float:right;
+              }
+              #page-content-wrapper {
+                padding: 5px;
+                position: relative;
+              }
+              #wrapper.toggled #page-content-wrapper {
+                position: relative;
+                margin-right: 0;
+              }
+            }
+        </style>
+        <script>
+            $("#menu-toggle").click(function(e) {
+              e.preventDefault();
+              $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.3/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <!----------------------------- BLOCK Login      -->
+        <button type="submit" name="commit" class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#login">
+          Login/Signup
+        </button>
+        <div class="modal fade" id="login" role="dialog">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Login</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block">
+                  <span>Login <i class="fa fa-sign-in"></i></span>
+                </button>
+                <div class="text-center">
+                  <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#signup">Signup</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="signup" role="dialog">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h4 class="modal-title">Signup</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fa fa-user"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fa fa-envelope"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                  <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">
+                      <i class="fa fa-lock"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" placeholder="Password confirmation" aria-label="Password confirmation" aria-describedby="basic-addon1">
+                </div>
+                <button type="submit" name="commit" class="btn btn-primary btn-lg btn-block">
+                  <span>Signup <i class="fa fa-sign-in"></i></span>
+                </button>
+                <div class="text-center">
+                  <a class="" href="" data-dismiss="modal" data-toggle="modal" data-target="#login">Login</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!---end Blk-->
+        <!-- required fontawesome -->
+        <!-- add 'sidebar-icons' snippet in css -->
+        <!-- add 'sidebar-icons' snippet in js -->
+        <div class="container">
+            <div class="row">
+                 <div id="wrapper">
+              <div id="sidebar-wrapper">
+                <ul class="sidebar-nav" style="margin-left:0;">
+                  <li class="sidebar-brand">
+                    <a href="#menu-toggle"  id="menu-toggle" style="margin-top:10px;float:right;" >
+                      <i class="fa fa-bars " style="font-size:20px !Important;" aria-hidden="true" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-sort-alpha-asc " aria-hidden="true"> </i> <span style="margin-left:10px;">Section</span>  </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fa fa-play-circle-o " aria-hidden="true"> </i> <span style="margin-left:10px;"> Section</span> </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fa fa-puzzle-piece" aria-hidden="true"> </i> <span style="margin-left:10px;"> Section</span> </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fa fa-font" aria-hidden="true"> </i> <span style="margin-left:10px;"> Section</span> </a>
+                  </li>
+                  <li>
+                    <a href="#"><i class="fa fa-info-circle " aria-hidden="true"> </i> <span style="margin-left:10px;">Section </span> </a>
+                  </li>
+                  <li>
+                    <a href="#"> <i class="fa fa-comment-o" aria-hidden="true"> </i> <span style="margin-left:10px;"> Section</span> </a>
+                  </li>
+                </ul>
+              </div>
+              
+        </div>
+        <!---- FORM SEARCH -->
+        
+        <div class="container">
+                  
+          <ul class="list-inline">
+            <li class="list-inline-item mr-2">
+              <a class="u-link-v5 g-color-main" href="/"><i class="fa fa-home mr-1"></i>Home</a>
+              <i class="fa fa-angle-right g-ml-7"></i>
+            </li>
+            <li class="list-inline-item mr-2">
+              <a class="u-link-v5 g-color-main" href="#">Article1</a>
+              <i class="fa fa-angle-right g-ml-7"></i>
+            </li>
+            <li class="list-inline-item">
+              <a class="u-link-v5 g-color-main" href="#">Article2</a>
+              <i class="fa fa-angle-right g-ml-7"></i>
+            </li>
+            <li class="list-inline-item g-color-primary">
+              <span>Article3</span>
+            </li>
+          </ul>
+
+          <div class="row">
+            
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+              <button type="button" class="btn btn-lg btn-default disabled">button</button>
+            </div>
+            
+            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+              <button type="button" class="btn btn-lg btn-default disabled">button</button>            
+            </div>
+            
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+              <button type="button" class="btn btn-lg btn-default disabled">button</button>
+            </div>
+            
+          </div>      
+              </div>
+              
+              </div>
+          </div>
+          
+          
+
+
+        
+        
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    </body>
+</html>
