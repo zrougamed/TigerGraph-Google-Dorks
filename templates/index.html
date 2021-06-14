@@ -381,7 +381,24 @@
           $(function() {
             $('#forms').submit(function(e){
               e.preventDefault();
-              alert("SSSS");
+              var a=$('#yourform').serialize();
+              $.ajax({
+                  type:'post',
+                  url:'http://163.172.205.31:1988/',
+                  data:a,
+                  beforeSend:function(){
+                      // launchpreloader();
+                      console.log("before send");
+                  },
+                  complete:function(){
+                      // stopPreloader();
+                      console.log("Completed send");
+                  },
+                  success:function(result){
+                      alert(result);
+                      console.log(result);
+                  }
+              });
             });
           });
         </script>
