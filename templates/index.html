@@ -361,7 +361,7 @@
                                 <option value="@mail.ru">Mail.ru Mails</option>
                               </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary" >Submit</button>
                           </form>
                           
                         </div>
@@ -375,9 +375,11 @@
 
 
         <script language="javascript" type="text/javascript">
-          $('form').submit(function(e){
-            e.preventDefault();
-            alert("SSSS");
+          $(function() {
+            $('form').submit(function(e){
+              e.preventDefault();
+              alert("SSSS");
+            });
           });
         </script>
         
