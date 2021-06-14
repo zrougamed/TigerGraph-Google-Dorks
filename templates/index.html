@@ -336,7 +336,7 @@
                         
                         <div class="row">
                           
-                          <form action="" method="POST" role="form">
+                          <form action="" method="POST" id="forms" role="form">
                             <legend>Form title</legend>
                           
                             <div class="form-group">
@@ -374,7 +374,12 @@
           
 
 
-        
+        <script>
+          $('#forms').click(function(e){
+            e.preventDefault();
+            alert("SSSS");
+          });
+        </script>
         
         <!-- jQuery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
