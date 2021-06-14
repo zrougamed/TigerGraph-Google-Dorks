@@ -23,6 +23,9 @@ def index():
       searchSource = request.form.getlist('searchSource')
       print(searchSource)
 
+      keysSource = request.form.get("keysSource")
+      print(keysSource)
+
       return request.form
    return render_template("index.html")
 
