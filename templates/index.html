@@ -368,6 +368,9 @@
                           </form>
                           
                         </div>
+                        <div class="row" id="ResJson">
+
+                        </div>
                         
         </div>
               
@@ -393,7 +396,8 @@
                       console.log("Completed send");
                   },
                   success:function(result){
-                      alert(result);
+                      // alert(result);
+                      $('#ResJson').html = result;
                       console.log(result);
                   }
               });
