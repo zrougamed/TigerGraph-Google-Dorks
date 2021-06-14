@@ -17,9 +17,8 @@ def dorker(keySearch,keyMail,keySites):
 @app.route("/",methods=["GET","POST"])
 def index():
    if request.method == "POST":
-      print(request.form)
-      for e in request.form:
-         print(e)
+      as_dict = request.form.getlist('myform')
+      print(as_dict)
       return request.form
    return render_template("index.html")
 
