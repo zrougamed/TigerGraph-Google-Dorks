@@ -18,6 +18,8 @@ def dorker(keySearch,keyMail,keySites):
 def index():
    if request.method == "POST":
       print(request.form)
+      for e in request.form:
+         print(e)
       return request.form
    return render_template("index.html")
 
