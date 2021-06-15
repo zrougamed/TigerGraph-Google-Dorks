@@ -320,21 +320,6 @@
             </li>
           </ul>
 
-                        <div class="row">
-                          
-                          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                            <button type="button" class="btn btn-lg btn-default disabled">button</button>
-                          </div>
-                          
-                          <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                            <button type="button" class="btn btn-lg btn-default disabled">button</button>            
-                          </div>
-                          
-                          <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
-                            <button type="button" class="btn btn-lg btn-default disabled">button</button>
-                          </div>
-                          
-                        </div>      
 
                         
                         <div class="row">
@@ -369,7 +354,23 @@
                           
                         </div>
                         <div class="row" id="ResJson">
-
+                          <div class="container">
+                            <table id="table"
+                                   data-toggle="table"
+                                   data-height="460"
+                                   data-search="true"
+                                   data-ajax="ajaxRequest"
+                                   data-side-pagination="server"
+                                   data-pagination="true">
+                                <thead>
+                                <tr>
+                                    <th data-field="title">title</th>
+                                    <th data-field="link">link</th>
+                                    <th data-field="snippet">snippet</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div>
                         </div>
                         
         </div>
@@ -396,8 +397,24 @@
                       console.log("Completed send");
                   },
                   success:function(result){
-                      // alert(result);
-                      $('#ResJson').html = result;
+                    params.success({
+                      "rows": result,
+                      "total": result.length
+                  },null,{}); 
+                    
+                    // alert(result);
+                      // $('#ResJson').html = result;
+                      // $.each(result["items"], function (index, item) {
+                      // var title = item.title;
+                      // var link = item.link;
+                      // var snippt = item.snippet;
+                      // var $head = $(".card-header").html("user id: " + userId + " - " + "id: " + typeId);
+                      // var $title = $(".card-title").html(titleId);
+                      // var $text = $(".card-text").html(bodyId);
+                });
+                // console.log('success', result);
+                // console.log(result[0].body);
+                // console.log($(result).length);
                       console.log(result);
                   }
               });
