@@ -411,7 +411,7 @@
                       var title = item.title;
                       var link = item.link;
                       var snippt = item.snippet;
-                        $("#theResBody").html += "<tr><td>" + title +  "</td><td>" + link + "</td><td>" + snippt + "</td></tr>"
+                        $("#theResBody").prepend("<tr><td>" + title +  "</td><td>" + link + "</td><td>" + snippt + "</td></tr>")
                        });
                 // console.log('success', result);
                 // console.log(result[0].body);
