@@ -62,7 +62,9 @@ def dorker(keySearch,keyMail,keySites):
 def index():
    if 'username' in session:
       if session["username"] != "inerp":
-         return redirect(url_for('/login'))
+         return redirect(url_for('login'))
+   else:
+      return redirect(url_for('login'))
    if request.method == "POST":
       mailSource = request.form.getlist('mailSource')
       print(mailSource)
