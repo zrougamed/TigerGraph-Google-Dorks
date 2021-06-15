@@ -17,16 +17,18 @@ def login():
       else:
          return '''
             
-            <form action = "" method = "post">
-               <p><input type = text name = username/></p>
-               <p<<input type = submit value = Login/></p>
-            </form>	
+   <form action="" method="post">
+      <p><input type="text" name="username" /></p>
+      <p><input type="text" name="password" /></p>
+      <p><input type="submit" value="Login" /></p>
+   </form>		
          '''      
    return '''
 	
-   <form action = "" method = "post">
-      <p><input type = text name = username/></p>
-      <p<<input type = submit value = Login/></p>
+   <form action="" method="post">
+      <p><input type="text" name="username" /></p>
+      <p><input type="text" name="password" /></p>
+      <p><input type="submit" value="Login" /></p>
    </form>	
 '''
 
