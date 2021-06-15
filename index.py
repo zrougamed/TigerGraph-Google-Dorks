@@ -12,8 +12,9 @@ def dorker(keySearch,keyMail,keySites):
    LINKED_IN = '+-intitle:"profiles"+-inurl:"dir/+"+site:www.linkedin.com/in/+OR+site:www.linkedin.com/pub/'
    if 'lin' in keySites:
       STR_SEARCH += LINKED_IN
-   print(STR_SEARCH)
+   
    url = "https://www.googleapis.com/customsearch/v1?key={}&cx={}&start={}&q={}"
+   print(url.format(API_KEY,CX_ID,START,STR_SEARCH))
    res = web.get(url.format(API_KEY,CX_ID,START,STR_SEARCH)).json()
    return res 
 
