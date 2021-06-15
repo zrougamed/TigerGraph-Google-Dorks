@@ -5,7 +5,7 @@ import requests as web
 
 app = Flask(__name__)
 
-
+app.secret_key = 'qs:dklkqsopicjlaazealmzdiopqsuiouqsiojejoqsd’
 
 
 @app.route('/login', methods = ['GET', 'POST'])
