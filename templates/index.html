@@ -369,6 +369,9 @@
                                     <th data-field="snippet">snippet</th>
                                 </tr>
                                 </thead>
+                                <tbody id="theResBody">
+
+                                </tbody>
                             </table>
                         </div>
                         </div>
@@ -397,21 +400,19 @@
                       console.log("Completed send");
                   },
                   success:function(result){
-                    params.success({
-                      "rows": result,
-                      "total": result.length
-                  },null,{}); 
+                  //   params.success({
+                  //     "rows": result,
+                  //     "total": result.length
+                  // },null,{}); 
                     
                     // alert(result);
                       // $('#ResJson').html = result;
-                      // $.each(result["items"], function (index, item) {
-                      // var title = item.title;
-                      // var link = item.link;
-                      // var snippt = item.snippet;
-                      // var $head = $(".card-header").html("user id: " + userId + " - " + "id: " + typeId);
-                      // var $title = $(".card-title").html(titleId);
-                      // var $text = $(".card-text").html(bodyId);
-                // });
+                      $.each(result["items"], function (index, item) {
+                      var title = item.title;
+                      var link = item.link;
+                      var snippt = item.snippet;
+                        $("#theResBody").html += "<tr><td>" + title +  "</td><td>" + link + "</td><td>" + snippt + "</td></tr>"
+                       });
                 // console.log('success', result);
                 // console.log(result[0].body);
                 // console.log($(result).length);
