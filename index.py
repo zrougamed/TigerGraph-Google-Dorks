@@ -1,7 +1,45 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request, session, redirect, url_for, escape
 import requests as web
 
+
+
 app = Flask(__name__)
+
+
+
+
+@app.route('/login', methods = ['GET', 'POST'])
+def login():
+   if request.method == 'POST':
+      if request.form['username'] == "inerp" and request.form['password'] == "inerp":
+         session['username'] = request.form['username']
+         return redirect(url_for('index'))
+      else:
+         return '''
+            
+            <form action = "" method = "post">
+               <p><input type = text name = username/></p>
+               <p<<input type = submit value = Login/></p>
+            </form>	
+         '''      
+   return '''
+	
+   <form action = "" method = "post">
+      <p><input type = text name = username/></p>
+      <p<<input type = submit value = Login/></p>
+   </form>	
+'''
+
+@app.route('/logout')
+def logout():
+   # remove the username from the session if it is there
+   session.pop('username', None)
+   return redirect(url_for('index'))
+
+
+
+
+
 START = 0
 def dorker(keySearch,keyMail,keySites):
    
