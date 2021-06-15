@@ -8,7 +8,7 @@ def dorker(keySearch,keyMail,keySites):
    CX_ID = "6de800d51f748f99f"
    API_KEY = "AIzaSyALJZaTRZBbQzwBI21da1d9qgSVpim28sQ"
 
-   STR_SEARCH = '"{}"++"{}"'.format(keySearch,keyMail[0])
+   STR_SEARCH = '{}++"{}"'.format(keySearch,keyMail[0])
    LINKED_IN = '+-intitle:"profiles"+-inurl:"dir/+"+site:www.linkedin.com/in/+OR+site:www.linkedin.com/pub/'
    if 'lin' in keySites:
       STR_SEARCH += LINKED_IN
